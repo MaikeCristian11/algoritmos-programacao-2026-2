@@ -1,0 +1,22 @@
+# Java
+*.class
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# NUNCA versionar aqui: material de correção
+gabarito/
+gabarito_professor/
+*_gabarito.*
+*_resolvido.*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editores
+.idea/
+.vscode/
+*.iml
