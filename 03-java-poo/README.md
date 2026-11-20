@@ -2,21 +2,14 @@
 
 Código das aulas de outubro e novembro, na ordem em que foi construído no projetor.
 
-## encontro09-primeira-classe
+| Pasta | Aula | Assunto |
+|---|---|---|
+| `encontro09-primeira-classe/` | 29/10 | Classes, objetos, construtor, vetor de objetos |
+| `encontro10-scanner/` | 05/11 | Leitura do teclado com Scanner |
+| `encontro11-heranca/` | 12/11 | Encapsulamento e herança |
+| `encontro12-polimorfismo/` | 19/11 | Polimorfismo e ArrayList |
 
-A mesma folha de pagamento escrita de três jeitos, uma versão em cima da outra.
-
-| Pasta | O que mostra |
-|---|---|
-| `etapa1_sem_objetos/` | Vetores paralelos, um para cada campo. Funciona, e começa a doer quando o quarto campo aparece |
-| `etapa2_primeira_classe/` | A classe `Funcionario`. Os quatro vetores viram um só |
-| `etapa3_folha_completa/` | Vetor de objetos, cálculo por setor e relatório |
-
-Leia na ordem. A etapa 1 existe para você sentir o problema que a etapa 2 resolve. Pular direto para a 2 é ver a resposta sem ter visto a pergunta.
-
-## encontro10-scanner
-
-A folha lendo do teclado em vez de ter os dados escritos no código. A classe `Funcionario` não mudou nenhuma linha nessa passagem, e isso é o ponto da aula.
+Cada pasta tem um README próprio. As dos encontros 11 e 12 estão divididas em etapas numeradas: **rode na ordem**, porque a primeira etapa existe para você sentir o problema que a seguinte resolve. Pular direto para a última é ver a resposta sem ter visto a pergunta.
 
 ## Como compilar e rodar
 
@@ -24,17 +17,12 @@ Entre na pasta da etapa e:
 
 ```bash
 javac *.java
-java Empresa
+java Programa
 ```
 
-Na etapa 1 o arquivo tem outro nome:
+No encontro 9 e no 10 os nomes são outros. O README de cada pasta diz qual.
 
-```bash
-javac FolhaSemObjetos.java
-java FolhaSemObjetos
-```
-
-Precisa do JDK instalado. Baixe em [adoptium.net](https://adoptium.net). Para conferir se deu certo:
+Precisa do JDK instalado. Baixe em [adoptium.net](https://adoptium.net). Para conferir:
 
 ```bash
 javac -version
@@ -42,10 +30,12 @@ javac -version
 
 Se aparecer um número de versão, está pronto. Se aparecer "comando não encontrado", o Java instalou mas não entrou no PATH, e aí me procure que resolvemos em dois minutos.
 
-## Erro mais comum
+## Os erros mais comuns
 
-```
-error: class Empresa is public, should be declared in a file named Empresa.java
-```
+**`class X is public, should be declared in a file named X.java`** — o nome do arquivo tem que ser igual ao nome da classe, com a mesma letra maiúscula.
 
-Em Java o nome do arquivo tem que ser igual ao nome da classe, com a mesma letra maiúscula. Renomeou o arquivo e esqueceu a classe lá dentro, ou o contrário, dá isso.
+**`cannot find symbol: class Colaborador`** — os arquivos não estão na mesma pasta. Todas as classes de uma etapa compilam juntas.
+
+**`salarioBase has private access in Colaborador`** — você tentou ler o atributo direto. Dentro de uma subclasse, use `getSalarioBase()`.
+
+**`constructor Colaborador in class Colaborador cannot be applied to given types`** — faltou o `super(...)` na primeira linha do construtor da subclasse.
