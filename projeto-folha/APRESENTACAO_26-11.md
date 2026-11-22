@@ -2,7 +2,7 @@
 
 Algoritmos e Programação · Prof. Maike Cristian · Unicuritiba 2026/2
 
-A aula de 26/11 é a apresentação do sistema de folha de pagamento. Não é prova nem defesa de TCC. É você mostrar o que construiu e explicar as escolhas que fez.
+A aula de 26/11 é a apresentação do sistema de folha de pagamento. Não é prova nem defesa de TCC. O código completo está nesta pasta, e o trabalho do grupo é rodá-lo, entendê-lo por inteiro e explicar como ele funciona.
 
 ---
 
@@ -15,7 +15,7 @@ A aula de 26/11 é a apresentação do sistema de folha de pagamento. Não é pr
 | Material | O código rodando. Slide é opcional e não conta ponto |
 | Ordem | Sorteada no começo da aula, então chegue pronto |
 
-Leve o projeto já compilado, em pendrive e também em algum lugar na nuvem. Máquina que não abre o projeto na hora é o problema mais comum em apresentação, e ele é evitável.
+Baixe a versão completa do repositório (`git pull` ou o zip do GitHub) e leve o projeto já compilado, em pendrive e também em algum lugar na nuvem. Máquina que não abre o projeto na hora é o problema mais comum em apresentação, e ele é evitável.
 
 ---
 
@@ -47,9 +47,9 @@ Abra os arquivos no projetor e responda três perguntas. Cada uma leva uns dois 
 
 ## A pergunta que eu vou fazer para todo grupo
 
-**Qual erro travou vocês, e como resolveram?**
+**Se a empresa criar um quarto tipo de colaborador, o que vocês mudariam no código?**
 
-Não existe resposta errada aqui, e não existe grupo que não travou. Quero ouvir o erro, a hipótese que vocês levantaram e o que de fato era. Grupo que diz "não deu erro nenhum" ou não mexeu no código, ou não vai saber responder a próxima pergunta.
+Por exemplo, um estagiário que recebe 60% do salário base. Quero ouvir quais arquivos vocês criariam ou alterariam, qual método seria sobrescrito, e por que o laço da folha não precisaria mudar. Quem entendeu herança e polimorfismo responde isso apontando para o código. Quem só decorou o código não consegue.
 
 ---
 
@@ -73,7 +73,7 @@ Se fechar, a parte de cálculo está certa. Se não fechar, o erro está em um d
 
 **Chegar sem compilar.** Compile na véspera e de novo antes de entrar na sala.
 
-**Só uma pessoa conhece o código.** A pergunta pode cair para qualquer integrante. Se vocês dividiram em partes, reservem uma tarde para cada um explicar a sua para os outros.
+**Só uma pessoa conhece o código.** A pergunta pode cair para qualquer integrante. Dividam os cinco arquivos entre vocês para estudar, e depois reservem uma tarde para cada um explicar a sua parte para os outros.
 
 **Decorar o texto.** Explicação decorada cai por terra na primeira pergunta fora do roteiro. Entenda o código e fale olhando para ele.
 
@@ -85,8 +85,9 @@ Se fechar, a parte de cálculo está certa. Se não fechar, o erro está em um d
 
 | Data | O que acontece |
 |---|---|
-| 19/11 | Última aula de conteúdo. Vocês saem com o esqueleto e com tudo que precisam |
+| 19/11 | Última aula de conteúdo |
+| 22/11 | Versão completa do sistema publicada no repositório |
 | 26/11 | Apresentação |
 | 05/12 | Entrega do código |
 
-Entre 19/11 e 26/11 vocês têm uma semana. É suficiente se o trabalho começar no fim de semana, e não é se começar na véspera.
+Entre 22/11 e 26/11 vocês têm quatro dias para rodar o sistema, estudar o código e ensaiar. É suficiente se começar agora, e não é se começar na véspera.
