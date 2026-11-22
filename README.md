@@ -17,8 +17,7 @@ Prof. Maike Cristian Rebelo de Lima — Unicuritiba
 
 | Data | O que acontece |
 |---|---|
-| 26/11 | Apresentação dos trabalhos |
-| 05/12 | Entrega do código |
+| 26/11 | Apresentação final dos trabalhos |
 
 Os requisitos da apresentação estão em [projeto-folha/APRESENTACAO_26-11.md](projeto-folha/APRESENTACAO_26-11.md). Leiam antes de montar o que vão mostrar: tem quatro coisas que precisam rodar ao vivo e três perguntas sobre o código que eu vou fazer para todos os grupos.
 

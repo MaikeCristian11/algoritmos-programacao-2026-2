@@ -2,7 +2,7 @@
 
 Versão completa e estável do sistema, para servir de base à apresentação. Os cinco arquivos estão prontos, compilam e passam na conferência abaixo.
 
-Apresentação em **26/11**. Entrega do código em **05/12**. Os requisitos da apresentação estão em [APRESENTACAO_26-11.md](APRESENTACAO_26-11.md).
+Apresentação final em **26/11**. Os requisitos da apresentação estão em [APRESENTACAO_26-11.md](APRESENTACAO_26-11.md).
 
 ## Como rodar
 

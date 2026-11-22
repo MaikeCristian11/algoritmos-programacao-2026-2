@@ -87,7 +87,6 @@ Se fechar, a parte de cálculo está certa. Se não fechar, o erro está em um d
 |---|---|
 | 19/11 | Última aula de conteúdo |
 | 22/11 | Versão completa do sistema publicada no repositório |
-| 26/11 | Apresentação |
-| 05/12 | Entrega do código |
+| 26/11 | Apresentação final |
 
 Entre 22/11 e 26/11 vocês têm quatro dias para rodar o sistema, estudar o código e ensaiar. É suficiente se começar agora, e não é se começar na véspera.
