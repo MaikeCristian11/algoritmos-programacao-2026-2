@@ -6,73 +6,70 @@
 //
 //  Regra:  produtividade = quantidadePecas x valorPorPeca
 //          salarioFinal  = salarioBase + produtividade
-//
-//  Esta classe esta quase vazia de proposito. Ela e gemea da
-//  ColaboradorComissionado: o que muda sao os nomes dos
-//  atributos e a conta. Faca a comissionada primeiro e depois
-//  repita o caminho aqui.
 
 public class ColaboradorProducao extends Colaborador {
 
-    // ---------------------------------------------------------
-    //  TODO 6: declarar os dois atributos, privados.
-    //
-    //    quantidadePecas .... numero inteiro de pecas
-    //    valorPorPeca ....... quanto a empresa paga por peca
-    // ---------------------------------------------------------
-
+    private int quantidadePecas;
+    private double valorPorPeca;
 
     public ColaboradorProducao(String matricula, String nome,
                                int quantidadePecas, double valorPorPeca) {
         super(matricula, nome);
-
-        // -----------------------------------------------------
-        //  TODO 7: gravar os dois valores recebidos nos
-        //  atributos do TODO 6. Comece gravando direto, com
-        //  this.quantidadePecas = quantidadePecas, e depois
-        //  troque pelos sets quando eles existirem.
-        // -----------------------------------------------------
+        setQuantidadePecas(quantidadePecas);
+        setValorPorPeca(valorPorPeca);
     }
 
-    // ---------------------------------------------------------
-    //  TODO 8: os metodos de acesso dos dois atributos.
-    //
-    //  Nos sets, recuse negativo.
-    // ---------------------------------------------------------
+    // ---------- metodos de acesso ----------
 
+    public int getQuantidadePecas() {
+        return quantidadePecas;
+    }
 
-    // ---------------------------------------------------------
-    //  TODO 9: getTipo, com @Override
-    //
-    //  Devolve o texto "Producao".
-    // ---------------------------------------------------------
+    public void setQuantidadePecas(int quantidadePecas) {
+        if (quantidadePecas < 0) {
+            System.out.println("Quantidade de pecas nao pode ser negativa. Gravado zero.");
+            this.quantidadePecas = 0;
+            return;
+        }
+        this.quantidadePecas = quantidadePecas;
+    }
 
+    public double getValorPorPeca() {
+        return valorPorPeca;
+    }
 
-    // ---------------------------------------------------------
-    //  TODO 10: calcularProdutividade
-    //
-    //  Devolve quantidadePecas x valorPorPeca.
-    // ---------------------------------------------------------
+    public void setValorPorPeca(double valorPorPeca) {
+        if (valorPorPeca < 0) {
+            System.out.println("Valor por peca nao pode ser negativo. Gravado zero.");
+            this.valorPorPeca = 0;
+            return;
+        }
+        this.valorPorPeca = valorPorPeca;
+    }
 
+    // ---------- comportamento ----------
 
-    // ---------------------------------------------------------
-    //  TODO 11: calcularSalarioFinal, com @Override
-    //
-    //  Devolve getSalarioBase() mais a produtividade.
-    // ---------------------------------------------------------
+    @Override
+    public String getTipo() {
+        return "Producao";
+    }
 
+    public double calcularProdutividade() {
+        return quantidadePecas * valorPorPeca;
+    }
 
-    // ---------------------------------------------------------
-    //  TODO 12: exibirDados, com @Override
-    //
-    //  Seis linhas, com a produtividade entre o salario base e
-    //  o salario final:
-    //
-    //      Nome: Carla Dias
-    //      Tipo: Producao
-    //      Matricula: 555
-    //      Salario Base: R$ 2.000,00
-    //      Produtividade: R$ 420,00
-    //      Salario Final: R$ 2.420,00
-    // ---------------------------------------------------------
+    @Override
+    public double calcularSalarioFinal() {
+        return getSalarioBase() + calcularProdutividade();
+    }
+
+    @Override
+    public void exibirDados() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Tipo: " + getTipo());
+        System.out.println("Matricula: " + getMatricula());
+        System.out.printf("Salario Base: R$ %,.2f%n", getSalarioBase());
+        System.out.printf("Produtividade: R$ %,.2f%n", calcularProdutividade());
+        System.out.printf("Salario Final: R$ %,.2f%n", calcularSalarioFinal());
+    }
 }

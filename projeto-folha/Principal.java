@@ -2,14 +2,10 @@
 //  Programa principal
 // ============================================================
 //
-//  O menu, o laco e a leitura do teclado ja estao montados,
-//  para voces gastarem o tempo nas classes e nao brigando com
-//  Scanner. O que falta sao os cinco metodos marcados abaixo.
-//
-//  Rode assim que abrir, antes de escrever qualquer linha. O
-//  menu tem que aparecer e a opcao 4 tem que imprimir TODO 16.
-//  Se isso acontecer, o ambiente esta certo e daqui em diante
-//  todo erro e do codigo de voces.
+//  Guarda todos os colaboradores em um unico ArrayList, do
+//  tipo da classe base. Cabem os tres tipos na mesma lista,
+//  porque todo ColaboradorPadrao, todo ColaboradorComissionado
+//  e todo ColaboradorProducao tambem e um Colaborador.
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -18,10 +14,6 @@ import java.util.Scanner;
 public class Principal {
 
     static Scanner teclado = new Scanner(System.in);
-
-    // Uma lista so, do tipo da classe base. Cabem os tres tipos
-    // aqui dentro, porque todo ColaboradorPadrao tambem e um
-    // Colaborador, e o mesmo vale para os outros dois.
     static ArrayList<Colaborador> colaboradores = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -65,97 +57,125 @@ public class Principal {
     }
 
     // ---------------------------------------------------------
-    //  TODO 13: cadastrarPadrao
-    //
-    //  Pergunte matricula e nome, crie um ColaboradorPadrao com
-    //  new e adicione na lista com colaboradores.add(...).
-    //
-    //  Para a matricula, use lerMatriculaNova(), que ja recusa
-    //  branco e repetida. Ela devolve null quando recusa, entao
-    //  teste isso e saia do metodo com return.
-    //
-    //  Este e o mais simples dos tres. Faca ele primeiro e rode
-    //  antes de partir para os outros dois.
+    //  Opcao 1
     // ---------------------------------------------------------
     static void cadastrarPadrao() {
-        System.out.println("TODO 13");
+        String matricula = lerMatriculaNova();
+        if (matricula == null) {
+            return;
+        }
+
+        System.out.print("Nome: ");
+        String nome = teclado.nextLine();
+
+        colaboradores.add(new ColaboradorPadrao(matricula, nome));
+        System.out.println("Colaborador padrao cadastrado.");
     }
 
     // ---------------------------------------------------------
-    //  TODO 14: cadastrarComissionado
-    //
-    //  Igual ao de cima, com duas perguntas a mais: valor de
-    //  vendas e percentual de comissao.
-    //
-    //  Use lerDoubleNaoNegativo e lerPercentual, que ja estao
-    //  prontos la embaixo. Eles recusam negativo e recusam
-    //  letra, que e o que a especificacao pede na validacao.
+    //  Opcao 2
     // ---------------------------------------------------------
     static void cadastrarComissionado() {
-        System.out.println("TODO 14");
+        String matricula = lerMatriculaNova();
+        if (matricula == null) {
+            return;
+        }
+
+        System.out.print("Nome: ");
+        String nome = teclado.nextLine();
+
+        double vendas = lerDoubleNaoNegativo("Valor de vendas: ");
+        double percentual = lerPercentual("Percentual de comissao (0 a 100): ");
+
+        colaboradores.add(new ColaboradorComissionado(matricula, nome, vendas, percentual));
+        System.out.println("Colaborador comissionado cadastrado.");
     }
 
     // ---------------------------------------------------------
-    //  TODO 15: cadastrarProducao
-    //
-    //  Quantidade de pecas e valor por peca.
-    //
-    //  A quantidade de pecas e int, e lerDoubleNaoNegativo
-    //  devolve double. Converta com (int) na frente da chamada.
+    //  Opcao 3
     // ---------------------------------------------------------
     static void cadastrarProducao() {
-        System.out.println("TODO 15");
+        String matricula = lerMatriculaNova();
+        if (matricula == null) {
+            return;
+        }
+
+        System.out.print("Nome: ");
+        String nome = teclado.nextLine();
+
+        int pecas = (int) lerDoubleNaoNegativo("Quantidade de pecas: ");
+        double valorPeca = lerDoubleNaoNegativo("Valor por peca: ");
+
+        colaboradores.add(new ColaboradorProducao(matricula, nome, pecas, valorPeca));
+        System.out.println("Colaborador de producao cadastrado.");
     }
 
     // ---------------------------------------------------------
-    //  TODO 16: gerarFolha
-    //
-    //  Percorra a lista e chame exibirDados em cada um.
-    //
-    //  Nao escreva if para descobrir o tipo. Cada objeto ja
-    //  sabe qual versao de exibirDados e a dele. Se voce sentir
-    //  vontade de testar o tipo aqui, e sinal de que falta um
-    //  @Override em alguma subclasse.
-    //
-    //  Trate a lista vazia antes do laco.
+    //  Opcao 4
     // ---------------------------------------------------------
     static void gerarFolha() {
-        System.out.println("TODO 16");
+        System.out.println();
+
+        if (colaboradores.isEmpty()) {
+            System.out.println("Nenhum colaborador cadastrado.");
+            return;
+        }
+
+        System.out.println("===== FOLHA DE PAGAMENTO =====");
+
+        // A lista e de Colaborador, mas cada objeto roda a sua
+        // propria versao de exibirDados. Nenhum if de tipo aqui.
+        for (Colaborador c : colaboradores) {
+            System.out.println();
+            c.exibirDados();
+        }
     }
 
     // ---------------------------------------------------------
-    //  TODO 17: exibirResumo
-    //
-    //  Um apanhado da folha inteira, em vez de colaborador por
-    //  colaborador. Sugestao do que mostrar:
-    //
-    //    - quantos colaboradores de cada tipo
-    //    - quantos no total
-    //    - o total da folha
-    //    - a media por colaborador
-    //
-    //  O total e um acumulador somando calcularSalarioFinal()
-    //  de cada um, o mesmo padrao de soma que voces fizeram
-    //  com vetores.
-    //
-    //  Para contar por tipo, use o getTipo que cada subclasse
-    //  ja responde:
-    //      if (c.getTipo().equals("Comissionado")) { ... }
-    //  Com equals, e nunca com ==, porque e texto.
-    //
-    //  Divisao por zero: a media so faz sentido com a lista
-    //  cheia. Trate a lista vazia antes.
+    //  Opcao 5
     // ---------------------------------------------------------
     static void exibirResumo() {
-        System.out.println("TODO 17");
+        System.out.println();
+
+        if (colaboradores.isEmpty()) {
+            System.out.println("Nenhum colaborador cadastrado.");
+            return;
+        }
+
+        int padrao = 0;
+        int comissionados = 0;
+        int producao = 0;
+        double total = 0;
+
+        for (Colaborador c : colaboradores) {
+            total = total + c.calcularSalarioFinal();
+
+            // Cada objeto ja sabe dizer o proprio tipo, entao
+            // da para contar sem perguntar de que classe ele e.
+            if (c.getTipo().equals("Comissionado")) {
+                comissionados = comissionados + 1;
+            } else if (c.getTipo().equals("Producao")) {
+                producao = producao + 1;
+            } else {
+                padrao = padrao + 1;
+            }
+        }
+
+        System.out.println("===== RESUMO DA FOLHA =====");
+        System.out.println("Colaboradores padrao: " + padrao);
+        System.out.println("Colaboradores comissionados: " + comissionados);
+        System.out.println("Colaboradores de producao: " + producao);
+        System.out.println("Total de colaboradores: " + colaboradores.size());
+        System.out.printf("Total da folha: R$ %,.2f%n", total);
+        System.out.printf("Media por colaborador: R$ %,.2f%n", total / colaboradores.size());
     }
 
     // =========================================================
-    //  Daqui para baixo esta pronto. Nao precisa mexer.
+    //  Leitura validada
     // =========================================================
 
-    // Devolve null quando a matricula e invalida ou ja existe,
-    // para o metodo que chamou poder cancelar o cadastro.
+    // Devolve null quando a matricula ja existe, para o metodo
+    // que chamou poder cancelar o cadastro.
     static String lerMatriculaNova() {
         System.out.print("Matricula: ");
         String matricula = teclado.nextLine().trim();

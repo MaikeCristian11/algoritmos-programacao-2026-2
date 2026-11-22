@@ -11,7 +11,7 @@ Prof. Maike Cristian Rebelo de Lima — Unicuritiba
 | `01-visualg/` | Algoritmos em pseudocódigo, arquivos `.alg` | Agosto e setembro |
 | `02-python/` | Condicionais e repetição, em `.py` e notebook | Setembro e outubro |
 | `03-java-poo/` | Classes, Scanner, herança, encapsulamento, polimorfismo e ArrayList | Outubro e novembro |
-| `projeto-folha/` | O esqueleto da A3, com os TODOs | A partir de 05/11 |
+| `projeto-folha/` | Sistema da A3, versão completa e estável | Atualizado em 22/11 |
 
 ## A reta final
 
